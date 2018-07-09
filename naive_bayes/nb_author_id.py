@@ -23,11 +23,15 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 
 
-
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.metrics import accuracy_score
 #########################################################
 ### your code goes here ###
-
-
+clf = BernoulliNB()
+clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+scores = accuracy_score(labels_test,pred)
+print(scores)
 #########################################################
 
 
